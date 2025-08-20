@@ -1,6 +1,12 @@
-# ⏱️ TimerApp for macOS
+# ⏱️ Desktop Timer for macOS
 
-A beautiful, floating timer app for macOS with auto-compact mode, global hotkeys, and multiple concurrent timers.
+A beautiful, floating ti## 🐛 Issues
+
+Found a bug? [Open an issue](https://github.com/Aarush1010/Desktop-Timer/issues)!
+
+---
+
+⭐ **Star this repo if you find it useful!** ⭐ macOS with auto-compact mode, global hotkeys, and multiple concurrent timers.
 
 ![TimerApp Demo](https://img.shields.io/badge/macOS-13.0+-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![Swift](https://img.shields.io/badge/Swift-5.9+-orange)
 
@@ -59,3 +65,7 @@ Found a bug? [Open an issue](https://github.com/Aarush1010/Desktop-Timer/issues)
 ---
 
 ⭐ **Star this repo if you find it useful!** ⭐
+=======
+# Desktop-Timer
+Desktop Timer is a lightweight macOS timer built with Swift that helps you stay on task with a simple, distraction free interface, quick start presets, and manual input, it runs in the foreground while you work, sends a clear alert when time’s up, and remembers your last duration, perfect for study sessions, workouts, cooking, or focused sprints.
+>>>>>>> f6dce0b80c21c077855e885886f6d67a7969d874
