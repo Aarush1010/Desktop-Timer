@@ -40,17 +40,6 @@ swift build -c release
 ./.build/release/TimerApp
 ```
 
-## ⚠️ Security Notice
-
-This app is **unsigned** (free distribution). macOS will show a security warning on first launch.
-
-**To bypass the warning:**
-1. Right-click on TimerApp.app
-2. Select "Open"  
-3. Click "Open" in the dialog
-
-This is normal for free macOS apps!
-
 ## 🎯 Usage
 
 - **New Timer:** ⌘+Shift+T or menu bar → "New Timer"
