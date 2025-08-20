@@ -1,0 +1,67 @@
+name: Build and Release TimerApp
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers on version tags like v1.0.0
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  build-and-release:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
+    
+    - name: Build TimerApp
+      run: |
+        # Set version from git tag or default
+        VERSION=${GITHUB_REF#refs/tags/v}
+        if [[ -z "$VERSION" || "$VERSION" == "$GITHUB_REF" ]]; then
+          VERSION="1.0.0"
+        fi
+        
+        # Update version in build script
+        sed -i '' "s/VERSION=\"1.0.0\"/VERSION=\"$VERSION\"/" build-release-unsigned.sh
+        
+        # Build the app
+        ./build-release-unsigned.sh
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          .build/release/TimerApp-v*.zip
+          .build/release/INSTALL.txt
+        body: |
+          # TimerApp Release
+          
+          ## 🎉 What's New
+          - Multiple floating timer windows
+          - Auto-compact mode when running  
+          - Global hotkeys (⌘+Shift+T)
+          - Editable timer names
+          - Click to pause/resume
+          
+          ## 📥 Installation
+          1. Download `TimerApp-v*.zip` below
+          2. Unzip and drag to Applications folder
+          3. **Important:** Right-click TimerApp → "Open" (bypass security warning)
+          4. Grant accessibility permissions when prompted
+          
+          ## ⚠️ Security Notice
+          This is an unsigned app (free distribution). macOS will show a warning on first launch - this is normal. Just right-click and select "Open".
+          
+          ## 🐛 Found a Bug?
+          [Report it here](https://github.com/${{ github.repository }}/issues)
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

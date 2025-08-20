@@ -1,0 +1,35 @@
+# Xcode and Swift
+.DS_Store
+.build/
+*.xcworkspace
+*.xcuserdata/
+*.xcscheme
+DerivedData/
+.swiftpm/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Build outputs
+TimerApp.app
+*.zip
+*.dmg
+INSTALL.txt
+
+# Configuration files (contain sensitive info)
+build-config.sh
+
+# Temporary files
+.tmp/
+*.tmp
+*.log
+
+# IDE files
+.vscode/
+.idea/
+
+# macOS
+.AppleDouble
+.LSOverride
+Thumbs.db
